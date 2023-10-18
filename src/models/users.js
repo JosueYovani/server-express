@@ -29,15 +29,6 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
     statics: {
       encrypPassword: async (password) => {
-        if (
-          !password.match(
-            /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
-          )
-        ) {
-          throw new Error(
-            "Password should contain upper, lowercase, number and special caracter!"
-          );
-        }
         const salt = await bcrypt.genSalt(15);
         return await bcrypt.hash(password, salt);
       },

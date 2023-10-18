@@ -1,5 +1,8 @@
 const express = require("express");
 
+/** Imports **/
+const apiRoutes = require("./routes");
+
 /** Init **/
 const app = express();
 
@@ -9,7 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.get("/", (req, res) => {
-  res.status(200).json({ message: "Api challenge v1" });
+  res.status(200).send({ msg: "Api challenge v1" });
 });
+app.use(apiRoutes);
 
 module.exports = app;
