@@ -1,13 +1,14 @@
 {
   "name": "api-dev",
   "version": "1.0.0",
-  "description": "",
+  "description": "API Rest Full Challenge 4",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon --watch . index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Yovani San Agustín",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
