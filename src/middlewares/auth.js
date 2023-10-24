@@ -6,7 +6,7 @@ const auth = async (req, res, next) => {
   try {
     const { authorization } = req.headers;
 
-    if (!authorization) return res.status(401).json({ msg: "Token required" });
+    if (!authorization) return res.status(401).send({ msg: "Token required" });
 
     const token = authorization.replace("Bearer ", "");
 
@@ -16,7 +16,7 @@ const auth = async (req, res, next) => {
 
     next();
   } catch (error) {
-    res.status(401).json({ msg: error.message || "Unknown" });
+    res.status(401).send({ msg: error.message || "Unknown" });
   }
 };
 
